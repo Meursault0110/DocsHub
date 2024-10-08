@@ -1,0 +1,264 @@
+---
+title: "CSS Básico"
+description: "Una guía exhaustiva sobre los fundamentos de CSS, incluyendo selectores, propiedades, modelo de cajas, colores, unidades, fondos, gradientes y más."
+---
+
+import { Card, CardGrid, LinkCard, TabItem, Aside, Badge, Code, FileTree, Icon, LinkButton, Steps, Tabs } from '@astrojs/starlight/components';
+
+<Aside type="note">
+    Esta guía te llevará a través de todos los conceptos fundamentales de CSS, desde los selectores básicos hasta técnicas avanzadas de estilización.
+</Aside>
+
+## Introducción a CSS
+
+CSS (Cascading Style Sheets) es un lenguaje de estilo utilizado para describir la presentación de un documento escrito en HTML o XML. CSS describe cómo los elementos deben ser renderizados en pantalla, en papel, o en otros medios.
+
+<Card title="¿Por qué es importante CSS?" icon="question">
+  CSS permite separar el contenido de la presentación, lo que resulta en:
+  - Mayor flexibilidad en el diseño
+  - Mejor mantenimiento del código
+  - Capacidad para adaptar el diseño a diferentes dispositivos
+</Card>
+
+## Selectores Básicos
+
+Los selectores son patrones utilizados para seleccionar los elementos que quieres estilizar.
+
+<CardGrid>
+  <Card title="Selector de Elemento" icon="document">
+    Selecciona todos los elementos de un tipo específico.
+    ```css
+    p {
+      color: blue;
+    }
+    ```
+  </Card>
+  <Card title="Selector de Clase" icon="puzzle">
+    Selecciona elementos con una clase específica.
+    ```css
+    .mi-clase {
+      font-size: 16px;
+    }
+    ```
+  </Card>
+  <Card title="Selector de ID" icon="target">
+    Selecciona un elemento con un ID específico.
+    ```css
+    #mi-id {
+      background-color: yellow;
+    }
+    ```
+  </Card>
+</CardGrid>
+
+## Propiedades de Fuente y Texto
+
+<Tabs>
+  <Fragment slot="tab.1">Fuente</Fragment>
+  <Fragment slot="tab.2">Texto</Fragment>
+
+  <Fragment slot="panel.1">
+    ```css
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      font-weight: normal;
+      font-style: italic;
+    }
+    ```
+  </Fragment>
+  <Fragment slot="panel.2">
+    ```css
+    p {
+      text-align: justify;
+      text-decoration: underline;
+      text-transform: uppercase;
+      line-height: 1.5;
+    }
+    ```
+  </Fragment>
+</Tabs>
+
+## Tipografías Externas
+
+Puedes usar tipografías externas para mejorar el diseño de tu sitio web.
+
+<LinkCard
+  title="Google Fonts"
+  description="Explora y usa tipografías gratuitas en tu sitio web"
+  href="https://fonts.google.com/"
+/>
+
+```css
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+```
+
+## Modelo de Cajas (Box Model)
+
+El modelo de cajas es fundamental en CSS. Describe cómo se renderiza cada elemento HTML.
+
+<antArtifact identifier="box-model-svg" type="image/svg+xml" title="Modelo de Cajas CSS">
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <rect x="50" y="50" width="300" height="200" fill="#f0f0f0" stroke="#333" stroke-width="2"/>
+  <rect x="70" y="70" width="260" height="160" fill="#d9edf7" stroke="#333" stroke-width="2"/>
+  <rect x="90" y="90" width="220" height="120" fill="#dff0d8" stroke="#333" stroke-width="2"/>
+  <rect x="110" y="110" width="180" height="80" fill="#fcf8e3" stroke="#333" stroke-width="2"/>
+  <text x="200" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">Contenido</text>
+  <text x="200" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Modelo de Cajas CSS</text>
+  <text x="40" y="155" text-anchor="end" font-family="Arial, sans-serif" font-size="12">Margen</text>
+  <text x="65" y="155" text-anchor="end" font-family="Arial, sans-serif" font-size="12">Borde</text>
+  <text x="85" y="155" text-anchor="end" font-family="Arial, sans-serif" font-size="12">Padding</text>
+</svg>
+
+## Relleno y Margen (Padding y Margin)
+
+<Steps>
+  1. **Padding**: Espacio entre el contenido y el borde.
+  2. **Margin**: Espacio fuera del borde.
+</Steps>
+
+```css
+.elemento {
+  padding: 10px;
+  margin: 20px;
+}
+```
+
+## Bordes (Border)
+
+Los bordes pueden personalizarse en estilo, ancho y color.
+
+```css
+.elemento {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+```
+
+## Tamaño de la Caja (Box sizing)
+
+<Aside type="tip">
+  Usa `box-sizing: border-box;` para incluir padding y border en el ancho total del elemento.
+</Aside>
+
+```css
+* {
+  box-sizing: border-box;
+}
+```
+
+## Colores
+
+CSS ofrece varias formas de especificar colores.
+
+<CardGrid>
+  <Card title="Nombres de Color">
+    ```css
+    color: red;
+    ```
+  </Card>
+  <Card title="Hexadecimal">
+    ```css
+    color: #ff0000;
+    ```
+  </Card>
+  <Card title="RGB">
+    ```css
+    color: rgb(255, 0, 0);
+    ```
+  </Card>
+  <Card title="RGBA">
+    ```css
+    color: rgba(255, 0, 0, 0.5);
+    ```
+  </Card>
+</CardGrid>
+
+## Unidades (CSS Units)
+
+CSS proporciona varias unidades para especificar tamaños.
+
+<Tabs>
+  <TabItem label="Absolutas">
+    - `px`: Píxeles
+    - `cm`: Centímetros
+    - `mm`: Milímetros
+    - `in`: Pulgadas
+    - `pt`: Puntos
+    - `pc`: Picas
+  </TabItem>
+  <TabItem label="Relativas">
+    - `em`: Relativo al tamaño de fuente del elemento
+    - `rem`: Relativo al tamaño de fuente del elemento raíz
+    - `%`: Porcentaje relativo al elemento padre
+    - `vw`: 1% del ancho de la ventana gráfica
+    - `vh`: 1% del alto de la ventana gráfica
+  </TabItem>
+</Tabs>
+
+## Fondos (Background)
+
+CSS ofrece varias propiedades para controlar los fondos de los elementos.
+
+```css
+.elemento {
+  background-color: #f0f0f0;
+  background-image: url('fondo.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+```
+
+## Gradientes (Gradients)
+
+Los gradientes permiten transiciones suaves entre dos o más colores.
+
+<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="grad2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(0,255,0);stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  <rect x="10" y="10" width="280" height="80" fill="url(#grad1)" />
+  <circle cx="150" cy="150" r="50" fill="url(#grad2)" />
+  <text x="150" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">Ejemplos de Gradientes CSS</text>
+</svg>
+
+```css
+.gradiente-lineal {
+  background: linear-gradient(to right, red, yellow);
+}
+
+.gradiente-radial {
+  background: radial-gradient(circle, blue, green);
+}
+```
+
+## Sombras (Shadows)
+
+Las sombras pueden aplicarse a texto y elementos.
+
+```css
+.texto-con-sombra {
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.caja-con-sombra {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+```
+
+<Aside type="caution">
+  El uso excesivo de sombras puede afectar el rendimiento. Úsalas con moderación.
+</Aside>
+</antArtifact>

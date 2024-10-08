@@ -1,0 +1,347 @@
+---
+title: HTML Básico
+description: Aprende los fundamentos de HTML, desde la estructura básica hasta formularios, con ejemplos interactivos y gráficos explicativos.
+---
+
+import { Card, CardGrid, Aside, Tabs, TabItem, Badge, Steps, LinkButton } from '@astrojs/starlight/components';
+
+# Guía Completa de HTML Básico
+
+<Aside type="tip">
+  Esta guía te llevará paso a paso a través de los conceptos fundamentales de HTML. ¡Prepárate para convertirte en un experto en HTML!
+</Aside>
+
+## Introducción
+
+HTML (HyperText Markup Language) es el lenguaje estándar para crear páginas web. En esta guía, aprenderemos los conceptos básicos de HTML que te permitirán crear tus propias páginas web.
+
+<CardGrid>
+  <Card title="Estructura de una etiqueta" icon="puzzle">
+    Aprende cómo se componen las etiquetas HTML.
+  </Card>
+  <Card title="Estructura de una página web" icon="document">
+    Descubre la anatomía de una página web HTML.
+  </Card>
+  <Card title="Párrafos y encabezados" icon="text">
+    Domina la creación de contenido textual.
+  </Card>
+  <Card title="Listas" icon="list-format">
+    Organiza tu información en listas ordenadas y desordenadas.
+  </Card>
+</CardGrid>
+
+## 1. Estructura de una etiqueta
+
+Las etiquetas HTML son los bloques de construcción básicos de una página web. Veamos su estructura:
+
+<Tabs>
+  <TabItem label="Explicación">
+    Una etiqueta HTML típicamente consta de:
+    - Una etiqueta de apertura: `<nombre-etiqueta>`
+    - Contenido
+    - Una etiqueta de cierre: `</nombre-etiqueta>`
+    
+    Algunas etiquetas son "auto-cerrantes" y no requieren una etiqueta de cierre separada.
+  </TabItem>
+  <TabItem label="Ejemplo">
+    ```html
+    <p>Este es un párrafo.</p>
+    <img src="imagen.jpg" alt="Una imagen" />
+    ```
+  </TabItem>
+</Tabs>
+
+<antArtifact identifier="etiqueta-html-svg" type="image/svg+xml" title="Estructura de una etiqueta HTML">
+<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="380" height="180" fill="#f0f0f0" stroke="#333" stroke-width="2"/>
+  <text x="200" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#333">Estructura de una etiqueta HTML</text>
+  <rect x="30" y="60" width="340" height="60" fill="#e1e1e1" stroke="#666" stroke-width="2"/>
+  <text x="50" y="90" font-family="monospace" font-size="14" fill="#333">&lt;p&gt;</text>
+  <text x="200" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Este es el contenido</text>
+  <text x="350" y="90" text-anchor="end" font-family="monospace" font-size="14" fill="#333">&lt;/p&gt;</text>
+  <path d="M50,100 Q50,130 80,130" fill="none" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="85" y="140" font-family="Arial, sans-serif" font-size="12" fill="#ff6b6b">Etiqueta de apertura</text>
+  <path d="M350,100 Q350,130 320,130" fill="none" stroke="#4ecdc4" stroke-width="2"/>
+  <text x="315" y="140" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#4ecdc4">Etiqueta de cierre</text>
+  <path d="M200,95 Q200,160 200,160" fill="none" stroke="#45b7d1" stroke-width="2"/>
+  <text x="200" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#45b7d1">Contenido</text>
+</svg>
+</antArtifact>
+
+## 2. Estructura de una página web
+
+Cada página HTML sigue una estructura básica. Veamos cómo se compone:
+
+<Steps>
+  1. Declaración del tipo de documento (`<!DOCTYPE html>`)
+  2. Elemento `<html>` que envuelve todo el contenido
+  3. Elemento `<head>` para metadatos
+  4. Elemento `<body>` para el contenido visible
+</Steps>
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primera Página Web</title>
+</head>
+<body>
+    <h1>Bienvenido a mi sitio web</h1>
+    <p>Este es un párrafo de ejemplo.</p>
+</body>
+</html>
+```
+
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="380" height="280" fill="#f0f0f0" stroke="#333" stroke-width="2"/>
+  <text x="200" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#333">Estructura de una página web HTML</text>
+  
+  <rect x="30" y="60" width="340" height="220" fill="#e1e1e1" stroke="#666" stroke-width="2"/>
+  <text x="50" y="85" font-family="monospace" font-size="14" fill="#333">&lt;!DOCTYPE html&gt;</text>
+  <text x="50" y="110" font-family="monospace" font-size="14" fill="#333">&lt;html&gt;</text>
+  
+  <rect x="70" y="120" width="260" height="60" fill="#d4e6f1" stroke="#3498db" stroke-width="2"/>
+  <text x="85" y="145" font-family="monospace" font-size="14" fill="#333">&lt;head&gt;</text>
+  <text x="100" y="170" font-family="Arial, sans-serif" font-size="12" fill="#333">Metadatos, título, etc.</text>
+  
+  <rect x="70" y="190" width="260" height="60" fill="#d5f5e3" stroke="#2ecc71" stroke-width="2"/>
+  <text x="85" y="215" font-family="monospace" font-size="14" fill="#333">&lt;body&gt;</text>
+  <text x="100" y="240" font-family="Arial, sans-serif" font-size="12" fill="#333">Contenido visible</text>
+  
+  <text x="50" y="270" font-family="monospace" font-size="14" fill="#333">&lt;/html&gt;</text>
+  
+  <path d="M50,90 Q20,100 20,150 L20,280" fill="none" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="15" y="295" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#ff6b6b" transform="rotate(-90 15,295)">Documento HTML</text>
+</svg>
+
+
+## 3. Párrafos y encabezados
+
+Los párrafos y encabezados son elementos fundamentales para estructurar el contenido de tu página.
+
+<Tabs>
+  <TabItem label="Párrafos">
+    Los párrafos se crean con la etiqueta `<p>`. Ejemplo:
+    ```html
+    <p>Este es un párrafo de ejemplo. Puede contener múltiples oraciones.</p>
+    ```
+  </TabItem>
+  <TabItem label="Encabezados">
+    Los encabezados van desde `<h1>` (el más importante) hasta `<h6>` (el menos importante). Ejemplo:
+    ```html
+    <h1>Título principal</h1>
+    <h2>Subtítulo</h2>
+    <h3>Encabezado de nivel 3</h3>
+    ```
+  </TabItem>
+</Tabs>
+
+<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="380" height="230" fill="#f0f0f0" stroke="#333" stroke-width="2"/>
+  <text x="200" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#333">Párrafos y Encabezados en HTML</text>
+  
+  <rect x="30" y="60" width="340" height="80" fill="#e1e1e1" stroke="#666" stroke-width="2"/>
+  <text x="50" y="85" font-family="monospace" font-size="14" fill="#333">&lt;h1&gt;Título Principal&lt;/h1&gt;</text>
+  <text x="50" y="110" font-family="monospace" font-size="14" fill="#333">&lt;h2&gt;Subtítulo&lt;/h2&gt;</text>
+  <text x="50" y="135" font-family="monospace" font-size="14" fill="#333">&lt;h3&gt;Encabezado nivel 3&lt;/h3&gt;</text>
+  
+  <rect x="30" y="150" width="340" height="70" fill="#d5f5e3" stroke="#2ecc71" stroke-width="2"/>
+  <text x="50" y="175" font-family="monospace" font-size="14" fill="#333">&lt;p&gt;Este es un párrafo de ejemplo.</text>
+  <text x="50" y="200" font-family="monospace" font-size="14" fill="#333">Puede contener múltiples oraciones.&lt;/p&gt;</text>
+  
+  <path d="M20,70 Q10,100 10,140" fill="none" stroke="#3498db" stroke-width="2"/>
+  <text x="5" y="155" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#3498db" transform="rotate(-90 5,155)">Encabezados</text>
+  
+  <path d="M390,160 Q400,185 400,220" fill="none" stroke="#2ecc71" stroke-width="2"/>
+  <text x="395" y="235" text-anchor="start" font-family="Arial, sans-serif" font-size="12" fill="#2ecc71" transform="rotate(-90 395,235)">Párrafo</text>
+</svg>
+
+
+## 4. Listas
+
+HTML ofrece tres tipos de listas: ordenadas, desordenadas y de definición.
+
+<CardGrid>
+  <Card title="Listas ordenadas" icon="list-ordered">
+    Usa `<ol>` para crear listas numeradas.
+  </Card>
+  <Card title="Listas desordenadas" icon="list-unordered">
+    Usa `<ul>` para listas con viñetas.
+  </Card>
+  <Card title="Listas de definición" icon="list">
+    Usa `<dl>` para listas de términos y definiciones.
+  </Card>
+</CardGrid>
+
+Ejemplo de lista ordenada y desordenada:
+
+```html
+<ol>
+  <li>Primer elemento</li>
+  <li>Segundo elemento</li>
+</ol>
+
+<ul>
+  <li>Elemento de lista</li>
+  <li>Otro elemento</li>
+</ul>
+```
+
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="380" height="280" fill="#f0f0f0" stroke="#333" stroke-width="2"/>
+  <text x="200" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#333">Tipos de Listas en HTML</text>
+  
+  <rect x="30" y="60" width="160" height="100" fill="#d4e6f1" stroke="#3498db" stroke-width="2"/>
+  <text x="110" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Lista Ordenada</text>
+  <text x="50" y="105" font-family="monospace" font-size="12" fill="#333">&lt;ol&gt;</text>
+  <text x="70" y="125" font-family="monospace" font-size="12" fill="#333">&lt;li&gt;Primero&lt;/li&gt;</text>
+  <text x="70" y="145" font-family="monospace" font-size="12" fill="#333">&lt;li&gt;Segundo&lt;/li&gt;</text>
+  <text x="50" y="165" font-family="monospace" font-size="12" fill="#333">&lt;/ol&gt;</text>
+  
+  <rect x="210" y="60" width="160" height="100" fill="#d5f5e3" stroke="#2ecc71" stroke-width="2"/>
+  <text x="290" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Lista Desordenada</text>
+  <text x="230" y="105" font-family="monospace" font-size="12" fill="#333">&lt;ul&gt;</text>
+  <text x="250" y="125" font-family="monospace" font-size="12" fill="#333">&lt;li&gt;Elemento&lt;/li&gt;</text>
+  <text x="250" y="145" font-family="monospace" font-size="12" fill="#333">&lt;li&gt;Otro&lt;/li&gt;</text>
+  <text x="230" y="165" font-family="monospace" font-size="12" fill="#333">&lt;/ul&gt;</text>
+  
+  <rect x="30" y="180" width="340" height="100" fill="#fadbd8" stroke="#e74c3c" stroke-width="2"/>
+  <text x="200" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Lista de Definición</text>
+  <text x="50" y="225" font-family="monospace" font-size="12" fill="#333">&lt;dl&gt;</text>
+  <text x="70" y="245" font-family="monospace" font-size="12" fill="#333">&lt;dt&gt;Término&lt;/dt&gt;</text>
+  <text x="70" y="265" font-family="monospace" font-size="12" fill="#333">&lt;dd&gt;Definición&lt;/dd&gt;</text>
+  <text x="50" y="285" font-family="monospace" font-size="12" fill="#333">&lt;/dl&gt;</text>
+</svg>
+
+## 5. Enlaces (Básico)
+
+Los enlaces son fundamentales en HTML, ya que permiten la navegación entre páginas web. Se crean con la etiqueta `<a>`.
+
+<Aside type="tip">
+  El atributo más importante de un enlace es `href`, que especifica la URL de destino.
+</Aside>
+
+Ejemplo de enlace:
+
+```html
+<a href="https://www.ejemplo.com">Visita Ejemplo.com</a>
+```
+
+<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="380" height="180" fill="#f0f0f0" stroke="#333" stroke-width="2"/>
+  <text x="200" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#333">Anatomía de un Enlace HTML</text>
+  
+  <rect x="30" y="60" width="340" height="60" fill="#e1e1e1" stroke="#666" stroke-width="2"/>
+  <text x="50" y="90" font-family="monospace" font-size="14" fill="#333">&lt;a href="https://www.ejemplo.com"&gt;Visita Ejemplo.com&lt;/a&gt;</text>
+  
+  <path d="M50,100 Q50,130 100,130" fill="none" stroke="#3498db" stroke-width="2"/>
+  <text x="105" y="140" font-family="Arial, sans-serif" font-size="12" fill="#3498db">Etiqueta de apertura</text>
+  
+  <path d="M90,95 Q90,150 200,150" fill="none" stroke="#e74c3c" stroke-width="2"/>
+  <text x="205" y="160" font-family="Arial, sans-serif" font-size="12" fill="#e74c3c">Atributo href con URL</text>
+  
+  <path d="M240,95 Q240,170 300,170" fill="none" stroke="#2ecc71" stroke-width="2"/>
+  <text x="305" y="180" font-family="Arial, sans-serif" font-size="12" fill="#2ecc71">Texto del enlace</text>
+  
+  <path d="M350,100 Q350,130 300,130" fill="none" stroke="#9b59b6" stroke-width="2"/>
+  <text x="295" y="140" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#9b59b6">Etiqueta de cierre</text>
+</svg>
+
+## 6. Imágenes y Rutas
+
+Las imágenes se insertan en HTML usando la etiqueta `<img>`. Es una etiqueta de auto-cierre, lo que significa que no necesita una etiqueta de cierre separada.
+
+<Tabs>
+  <TabItem label="Sintaxis básica">
+    ```html
+    <img src="ruta/a/la/imagen.jpg" alt="Descripción de la imagen">
+    ```
+  </TabItem>
+  <TabItem label="Atributos importantes">
+    - `src`: La ruta a la imagen
+    - `alt`: Texto alternativo para accesibilidad
+    - `width` y `height`: Dimensiones de la imagen (opcional)
+  </TabItem>
+</Tabs>
+
+### Tipos de rutas:
+
+1. **Rutas absolutas**: Apuntan a una ubicación específica en la web.
+   ```html
+   <img src="https://www.ejemplo.com/images/foto.jpg" alt="Foto de ejemplo">
+   ```
+
+2. **Rutas relativas**: Apuntan a una ubicación relativa al archivo HTML actual.
+   ```html
+   <img src="images/foto.jpg" alt="Foto de ejemplo">
+   ```
+
+<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="380" height="230" fill="#f0f0f0" stroke="#333" stroke-width="2"/>
+  <text x="200" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#333">Imágenes y Rutas en HTML</text>
+  
+  <rect x="30" y="60" width="340" height="80" fill="#d4e6f1" stroke="#3498db" stroke-width="2"/>
+  <text x="200" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Etiqueta de imagen</text>
+  <text x="50" y="110" font-family="monospace" font-size="12" fill="#333">&lt;img src="ruta/imagen.jpg" alt="Descripción"&gt;</text>
+  
+  <rect x="30" y="150" width="160" height="70" fill="#d5f5e3" stroke="#2ecc71" stroke-width="2"/>
+  <text x="110" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Ruta Absoluta</text>
+  <text x="40" y="200" font-size="10" fill="#333">https://ejemplo.com/img.jpg</text>
+  
+  <rect x="210" y="150" width="160" height="70" fill="#fadbd8" stroke="#e74c3c" stroke-width="2"/>
+  <text x="290" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Ruta Relativa</text>
+  <text x="220" y="200" font-size="10" fill="#333">images/img.jpg</text>
+</svg>
+
+## 7. Formularios
+
+Los formularios en HTML permiten recopilar datos de los usuarios. Se crean con la etiqueta `<form>` y contienen varios tipos de elementos de entrada.
+
+<Steps>
+  1. Crear un formulario con `<form>`
+  2. Añadir elementos de entrada como `<input>`, `<textarea>`, `<select>`
+  3. Usar etiquetas `<label>` para describir los campos
+  4. Incluir un botón de envío
+</Steps>
+
+Ejemplo de un formulario básico:
+
+```html
+<form action="/enviar-datos" method="post">
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" name="nombre" required>
+  
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required>
+  
+  <label for="mensaje">Mensaje:</label>
+  <textarea id="mensaje" name="mensaje"></textarea>
+  
+  <button type="submit">Enviar</button>
+</form>
+```
+
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="380" height="280" fill="#f0f0f0" stroke="#333" stroke-width="2"/>
+  <text x="200" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#333">Estructura de un Formulario HTML</text>
+  
+  <rect x="30" y="60" width="340" height="220" fill="#e1e1e1" stroke="#666" stroke-width="2"/>
+  <text x="50" y="85" font-family="monospace" font-size="14" fill="#333">&lt;form&gt;</text>
+  
+  <rect x="50" y="100" width="300" height="40" fill="#d4e6f1" stroke="#3498db" stroke-width="2"/>
+  <text x="60" y="125" font-family="monospace" font-size="12" fill="#333">&lt;input type="text"&gt;</text>
+  
+  <rect x="50" y="150" width="300" height="40" fill="#d5f5e3" stroke="#2ecc71" stroke-width="2"/>
+  <text x="60" y="175" font-family="monospace" font-size="12" fill="#333">&lt;input type="email"&gt;</text>
+  
+  <rect x="50" y="200" width="300" height="40" fill="#fadbd8" stroke="#e74c3c" stroke-width="2"/>
+  <text x="60" y="225" font-family="monospace" font-size="12" fill="#333">&lt;textarea&gt;&lt;/textarea&gt;</text>
+  
+  <rect x="150" y="250" width="100" height="20" fill="#f9e79f" stroke="#f39c12" stroke-width="2"/>
+  <text x="200" y="265" text-anchor="middle" font-family="monospace" font-size="12" fill="#333">&lt;button&gt;</text>
+  
+  <text x="50" y="285" font-family="monospace" font-size="14" fill="#333">&lt;/form&gt;</text>
+</svg>
+

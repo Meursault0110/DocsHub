@@ -1,0 +1,208 @@
+---
+title: Guía Completa de Animaciones en CSS
+description: Explora el mundo de las animaciones en CSS, desde transiciones básicas hasta animaciones avanzadas basadas en scroll. Incluye ejemplos interactivos y gráficos explicativos.
+---
+
+import { Card, CardGrid, LinkCard, Aside, Tabs, TabItem, Badge, Code, Icon, LinkButton, Steps } from '@astrojs/starlight/components';
+import { FileTree } from '@astrojs/starlight/components';
+
+# Animaciones en CSS: Una Guía Completa
+
+<Aside type="tip">
+  Las animaciones en CSS son una poderosa herramienta para dar vida a tus páginas web y mejorar la experiencia del usuario.
+</Aside>
+
+## Introducción
+
+Las animaciones en CSS permiten crear efectos visuales dinámicos sin necesidad de JavaScript. En esta guía, exploraremos cuatro aspectos fundamentales de las animaciones en CSS:
+
+<CardGrid>
+  <Card title="Transiciones" icon="rocket">
+    Cambios suaves entre estados de elementos.
+  </Card>
+  <Card title="Animaciones" icon="random">
+    Secuencias de cambios más complejas y personalizables.
+  </Card>
+  <Card title="Animaciones basadas en scroll" icon="down-caret">
+    Efectos que responden al desplazamiento de la página.
+  </Card>
+  <Card title="Rango de Animaciones" icon="bars">
+    Control preciso sobre diferentes etapas de una animación.
+  </Card>
+</CardGrid>
+
+## 1. Transiciones
+
+Las transiciones en CSS permiten cambiar suavemente las propiedades de un elemento de un estado a otro.
+
+<Tabs>
+  <TabItem label="Sintaxis Básica">
+    ```css
+    .elemento {
+      transition: propiedad duración función-de-tiempo retraso;
+    }
+    ```
+  </TabItem>
+  <TabItem label="Ejemplo">
+    ```css
+    .boton {
+      background-color: blue;
+      transition: background-color 0.3s ease-in-out;
+    }
+    .boton:hover {
+      background-color: red;
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+<Aside type="note">
+  Las transiciones son ideales para efectos simples activados por eventos como hover o focus.
+</Aside>
+
+<antArtifact identifier="transition-svg" type="image/svg+xml" title="Diagrama de Transición CSS">
+  <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+    <rect x="50" y="50" width="100" height="100" fill="blue">
+      <animate attributeName="x" from="50" to="250" dur="3s" repeatCount="indefinite" />
+      <animate attributeName="fill" from="blue" to="red" dur="3s" repeatCount="indefinite" />
+    </rect>
+    <text x="200" y="180" text-anchor="middle" fill="black">Transición de posición y color</text>
+  </svg>
+
+## 2. Animaciones
+
+Las animaciones en CSS ofrecen un control más detallado sobre las secuencias de movimiento y cambios de estilo.
+
+<Tabs>
+  <TabItem label="Definición de Keyframes">
+    ```css
+    @keyframes nombre-animacion {
+      0% { /* estilos iniciales */ }
+      50% { /* estilos intermedios */ }
+      100% { /* estilos finales */ }
+    }
+    ```
+  </TabItem>
+  <TabItem label="Aplicación de Animación">
+    ```css
+    .elemento-animado {
+      animation: nombre-animacion 5s ease-in-out infinite;
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+<LinkCard
+  title="Más sobre animaciones"
+  description="Aprende técnicas avanzadas de animación en CSS"
+  href="#"
+/>
+
+<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="100" r="20" fill="purple">
+      <animate attributeName="cx" from="50" to="350" dur="4s" repeatCount="indefinite" />
+      <animate attributeName="r" values="20;40;20" dur="4s" repeatCount="indefinite" />
+    </circle>
+    <text x="200" y="180" text-anchor="middle" fill="black">Animación de movimiento y tamaño</text>
+  </svg>
+
+## 3. Animaciones basadas en scroll
+
+Las animaciones basadas en scroll crean efectos interactivos que responden al desplazamiento de la página.
+
+<Steps>
+  1. Definir los keyframes de la animación.
+  2. Aplicar la animación al elemento deseado.
+  3. Utilizar `animation-play-state` para controlar la animación basada en el scroll.
+</Steps>
+
+```css
+.elemento-scroll {
+  animation: aparecer 1s ease-out forwards;
+  animation-play-state: paused;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+```
+
+```javascript
+window.addEventListener('scroll', () => {
+  const elementos = document.querySelectorAll('.elemento-scroll');
+  elementos.forEach(elem => {
+    const rect = elem.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      elem.style.animationPlayState = 'running';
+    }
+  });
+});
+```
+
+<Aside type="caution">
+  Las animaciones basadas en scroll pueden afectar el rendimiento si no se optimizan adecuadamente.
+</Aside>
+
+```svg
+<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+    <rect x="50" y="50" width="300" height="100" fill="none" stroke="black" />
+    <text x="200" y="90" text-anchor="middle" fill="gray">Contenido Visible</text>
+    <path d="M200,10 L190,20 L210,20 Z" fill="black" />
+    <path d="M200,190 L190,180 L210,180 Z" fill="black" />
+    <text x="220" y="25" fill="black">Scroll Up</text>
+    <text x="220" y="185" fill="black">Scroll Down</text>
+    <circle cx="100" cy="150" r="15" fill="green">
+      <animate attributeName="cy" from="150" to="50" dur="3s" begin="click" fill="freeze" />
+    </circle>
+    <text x="100" y="180" text-anchor="middle" fill="black">Click para animar</text>
+  </svg>
+
+```
+
+## 4. Rango de Animaciones
+
+El rango de animaciones permite un control preciso sobre diferentes etapas de una animación mediante porcentajes.
+
+```css
+@keyframes cambio-color {
+  0% { background-color: red; }
+  25% { background-color: yellow; }
+  50% { background-color: green; }
+  75% { background-color: blue; }
+  100% { background-color: purple; }
+}
+
+.elemento-color-cambiante {
+  width: 100px;
+  height: 100px;
+  animation: cambio-color 5s infinite;
+}
+```
+
+<Badge variant="success">Pro Tip</Badge> Utiliza `animation-timing-function: steps(5)` para crear una animación que cambie de color en intervalos discretos.
+
+```svg
+<svg viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0" y="20" width="80" height="60" fill="red" />
+    <rect x="80" y="20" width="80" height="60" fill="yellow" />
+    <rect x="160" y="20" width="80" height="60" fill="green" />
+    <rect x="240" y="20" width="80" height="60" fill="blue" />
+    <rect x="320" y="20" width="80" height="60" fill="purple" />
+    <text x="40" y="95" text-anchor="middle" fill="black">0%</text>
+    <text x="120" y="95" text-anchor="middle" fill="black">25%</text>
+    <text x="200" y="95" text-anchor="middle" fill="black">50%</text>
+    <text x="280" y="95" text-anchor="middle" fill="black">75%</text>
+    <text x="360" y="95" text-anchor="middle" fill="black">100%</text>
+  </svg>
+
+```
+
+## Conclusión
+
+Las animaciones en CSS son una herramienta poderosa para mejorar la interactividad y el atractivo visual de tus sitios web. Desde simples transiciones hasta complejas animaciones basadas en scroll, CSS ofrece una amplia gama de posibilidades para dar vida a tus diseños.
+
+<LinkButton href="#">Explorar más ejemplos</LinkButton>
+
+<Icon name="rocket" color="purple" size="2rem" /> ¡Empieza a animar tus proyectos hoy mismo!
+</antArtifact>

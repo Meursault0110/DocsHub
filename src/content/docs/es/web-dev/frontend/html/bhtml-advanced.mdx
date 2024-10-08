@@ -1,0 +1,432 @@
+---
+title: HTML Avanzado
+description: Domina las técnicas avanzadas de HTML, desde metaetiquetas hasta accesibilidad web, con ejemplos interactivos y visuales detallados.
+---
+
+import { Card, CardGrid, Aside, Tabs, TabItem, Badge, Steps, LinkButton, Icon } from '@astrojs/starlight/components';
+
+# Guía Completa de HTML Avanzado
+
+<Aside type="tip">
+  Esta guía te llevará a través de conceptos avanzados de HTML, mejorando tus habilidades y conocimientos para crear páginas web más sofisticadas y accesibles.
+</Aside>
+
+## Introducción
+
+HTML (HyperText Markup Language) es la columna vertebral de la web. En esta guía avanzada, profundizaremos en técnicas y elementos más sofisticados que te permitirán crear páginas web más ricas, semánticas y accesibles.
+
+<CardGrid>
+  <Card title="Metaetiquetas y Comentarios" icon="puzzle">
+    Optimiza tu SEO y estructura tu código.
+  </Card>
+  <Card title="Formularios Avanzados" icon="form">
+    Domina elementos como textarea, select y fieldset.
+  </Card>
+  <Card title="Multimedia y Rendimiento" icon="rss">
+    Incorpora audio, video y técnicas de carga eficiente.
+  </Card>
+  <Card title="Semántica y Accesibilidad" icon="accessibility">
+    Crea sitios web inclusivos y bien estructurados.
+  </Card>
+</CardGrid>
+
+## 1. Metaetiquetas, comentarios e iconos
+
+Las metaetiquetas proporcionan información sobre tu documento HTML a los navegadores y motores de búsqueda, mientras que los comentarios ayudan a organizar y explicar tu código.
+
+<Tabs>
+  <TabItem label="Metaetiquetas">
+    ```html
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="Descripción de la página para SEO">
+      <meta name="keywords" content="HTML, CSS, JavaScript">
+      <meta name="author" content="Tu Nombre">
+    </head>
+    ```
+  </TabItem>
+  <TabItem label="Comentarios">
+    ```html
+    <!-- Este es un comentario en HTML -->
+    <!-- 
+      Los comentarios pueden 
+      abarcar múltiples líneas 
+    -->
+    ```
+  </TabItem>
+  <TabItem label="Favicon">
+    ```html
+    <head>
+      <link rel="icon" href="favicon.ico" type="image/x-icon">
+      <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    </head>
+    ```
+  </TabItem>
+</Tabs>
+
+<antArtifact identifier="meta-comentarios-svg" type="image/svg+xml" title="Metaetiquetas y Comentarios en HTML">
+<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="380" height="230" fill="#f0f0f0" stroke="#333" stroke-width="2"/>
+  <text x="200" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#333">Metaetiquetas y Comentarios en HTML</text>
+  
+  <rect x="30" y="60" width="160" height="100" fill="#d4e6f1" stroke="#3498db" stroke-width="2"/>
+  <text x="110" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Metaetiquetas</text>
+  <text x="40" y="100" font-family="monospace" font-size="10" fill="#333">&lt;meta charset="UTF-8"&gt;</text>
+  <text x="40" y="120" font-family="monospace" font-size="10" fill="#333">&lt;meta name="viewport"...</text>
+  <text x="40" y="140" font-family="monospace" font-size="10" fill="#333">&lt;meta name="description"...</text>
+  
+  <rect x="210" y="60" width="160" height="100" fill="#d5f5e3" stroke="#2ecc71" stroke-width="2"/>
+  <text x="290" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Comentarios</text>
+  <text x="220" y="100" font-family="monospace" font-size="10" fill="#333">&lt;!-- Comentario --&gt;</text>
+  <text x="220" y="120" font-family="monospace" font-size="10" fill="#333">&lt;!-- Múltiples</text>
+  <text x="220" y="140" font-family="monospace" font-size="10" fill="#333">     líneas --&gt;</text>
+  
+  <rect x="30" y="170" width="340" height="50" fill="#fadbd8" stroke="#e74c3c" stroke-width="2"/>
+  <text x="200" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Favicon</text>
+  <text x="40" y="210" font-family="monospace" font-size="10" fill="#333">&lt;link rel="icon" href="favicon.ico" type="image/x-icon"&gt;</text>
+</svg>
+</antArtifact>
+
+## 2. Textarea & Labels
+
+Los elementos `<textarea>` y `<label>` son fundamentales para crear formularios más complejos y accesibles.
+
+<Steps>
+  1. Crear un `<textarea>` para entrada de texto multilínea
+  2. Asociar un `<label>` con el `<textarea>` usando el atributo `for`
+  3. Ajustar el tamaño del `<textarea>` con los atributos `rows` y `cols`
+</Steps>
+
+Ejemplo de uso:
+
+```html
+<label for="comentario">Deja tu comentario:</label>
+<textarea id="comentario" name="comentario" rows="4" cols="50">
+Escribe aquí tu comentario...
+</textarea>
+```
+
+<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="380" height="180" fill="#f0f0f0" stroke="#333" stroke-width="2"/>
+  <text x="200" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#333">Textarea y Label en HTML</text>
+  
+  <rect x="30" y="60" width="340" height="30" fill="#d4e6f1" stroke="#3498db" stroke-width="2"/>
+  <text x="40" y="80" font-family="monospace" font-size="12" fill="#333">&lt;label for="comentario"&gt;Deja tu comentario:&lt;/label&gt;</text>
+  
+  <rect x="30" y="100" width="340" height="70" fill="#d5f5e3" stroke="#2ecc71" stroke-width="2"/>
+  <text x="40" y="120" font-family="monospace" font-size="12" fill="#333">&lt;textarea id="comentario" name="comentario"</text>
+  <text x="40" y="140" font-family="monospace" font-size="12" fill="#333">           rows="4" cols="50"&gt;</text>
+  <text x="40" y="160" font-family="monospace" font-size="12" fill="#333">Escribe aquí tu comentario...&lt;/textarea&gt;</text>
+</svg>
+
+## 3. Select, Datalist & Option
+
+Los elementos `<select>`, `<datalist>`, y `<option>` permiten crear listas desplegables y campos de entrada con sugerencias.
+
+<Tabs>
+  <TabItem label="Select">
+    ```html
+    <label for="pais">Selecciona tu país:</label>
+    <select id="pais" name="pais">
+      <option value="es">España</option>
+      <option value="mx">México</option>
+      <option value="ar">Argentina</option>
+    </select>
+    ```
+  </TabItem>
+  <TabItem label="Datalist">
+    ```html
+    <label for="color">Elige un color:</label>
+    <input list="colores" id="color" name="color">
+    <datalist id="colores">
+      <option value="Rojo">
+      <option value="Verde">
+      <option value="Azul">
+    </datalist>
+    ```
+  </TabItem>
+</Tabs>
+
+<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="380" height="230" fill="#f0f0f0" stroke="#333" stroke-width="2"/>
+  <text x="200" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#333">Select y Datalist en HTML</text>
+  
+  <rect x="30" y="60" width="160" height="150" fill="#d4e6f1" stroke="#3498db" stroke-width="2"/>
+  <text x="110" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Select</text>
+  <text x="40" y="100" font-family="monospace" font-size="10" fill="#333">&lt;select id="pais"&gt;</text>
+  <text x="50" y="120" font-family="monospace" font-size="10" fill="#333">&lt;option&gt;España&lt;/option&gt;</text>
+  <text x="50" y="140" font-family="monospace" font-size="10" fill="#333">&lt;option&gt;México&lt;/option&gt;</text>
+  <text x="50" y="160" font-family="monospace" font-size="10" fill="#333">&lt;option&gt;Argentina&lt;/option&gt;</text>
+  <text x="40" y="180" font-family="monospace" font-size="10" fill="#333">&lt;/select&gt;</text>
+  
+  <rect x="210" y="60" width="160" height="150" fill="#d5f5e3" stroke="#2ecc71" stroke-width="2"/>
+  <text x="290" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Datalist</text>
+  <text x="220" y="100" font-family="monospace" font-size="10" fill="#333">&lt;input list="colores"&gt;</text>
+  <text x="220" y="120" font-family="monospace" font-size="10" fill="#333">&lt;datalist id="colores"&gt;</text>
+  <text x="230" y="140" font-family="monospace" font-size="10" fill="#333">&lt;option&gt;Rojo&lt;/option&gt;</text>
+  <text x="230" y="160" font-family="monospace" font-size="10" fill="#333">&lt;option&gt;Verde&lt;/option&gt;</text>
+  <text x="230" y="180" font-family="monospace" font-size="10" fill="#333">&lt;option&gt;Azul&lt;/option&gt;</text>
+  <text x="220" y="200" font-family="monospace" font-size="10" fill="#333">&lt;/datalist&gt;</text>
+</svg>
+
+## 4. Fieldset & Legend
+
+Los elementos `<fieldset>` y `<legend>` se utilizan para agrupar y etiquetar relacionados elementos de formulario.
+
+```html
+<fieldset>
+  <legend>Información Personal</legend>
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" name="nombre">
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email">
+</fieldset>
+```
+
+<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="380" height="180" fill="#f0f0f0" stroke="#333" stroke-width="2"/>
+  <text x="200" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#333">Fieldset y Legend en HTML</text>
+  
+  <rect x="30" y="60" width="340" height="120" fill="#d4e6f1" stroke="#3498db" stroke-width="2"/>
+  <text x="40" y="80" font-family="monospace" font-size="12" fill="#333">&lt;fieldset&gt;</text>
+  
+  <rect x="50" y="90" width="150" height="25" fill="#fadbd8" stroke="#e74c3c" stroke-width="2"/>
+  <text x="60" y="107" font-family="monospace" font-size="12" fill="#333">&lt;legend&gt;Info Personal&lt;/legend&gt;</text>
+  
+  <text x="50" y="130" font-family="monospace" font-size="12" fill="#333">&lt;label for="nombre"&gt;Nombre:&lt;/label&gt;</text>
+  <text x="50" y="150" font-family="monospace" font-size="12" fill="#333">&lt;input type="text" id="nombre"&gt;</text>
+  
+  <text x="40" y="170" font-family="monospace" font-size="12" fill="#333">&lt;/fieldset&gt;</text>
+</svg>
+
+## 5. Details & Summary
+
+Los elementos `<details>` y `<summary>` permiten crear contenido desplegable, útil para FAQs o información adicional.
+
+```html
+<details>
+  <summary>¿Qué es HTML?</summary>
+  <p>HTML significa HyperText Markup Language. Es el lenguaje estándar para crear páginas web.</p>
+</details>
+```
+
+<antArtifact identifier="details-summary-svg" type="image/svg+xml" title="Details y Summary en HTML">
+<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="380" height="180" fill="#f0f0f0" stroke="#333" stroke-width="2"/>
+  <text x="200" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#333">Details y Summary en HTML</text>
+  
+  <rect x="30" y="60" width="340" height="120" fill="#d4e6f1" stroke="#3498db" stroke-width="2"/>
+  <text x="40" y="80" font-family="monospace" font-size="12" fill="#333">&lt;details&gt;</text>
+  
+  <rect x="50" y="90" width="300" height="25" fill="#fadbd8" stroke="#e74c3c" stroke-width="2"/>
+  <text x="60" y="107" font-family="monospace" font-size="12" fill="#333">&lt;summary&gt;¿Qué es HTML?&lt;/summary&gt;</text>
+  
+  <text x="50" y="130" font-family="monospace" font-size="12" fill="#333">&lt;p&gt;HTML significa HyperText Markup Language.&lt;/p&gt;</text>
+  
+  <text x="40" y="170" font-family="monospace" font-size="12" fill="#333">&lt;/details&gt;</text>
+</svg>
+</antArtifact>
+
+## 6. Enlaces (Avanzado)
+
+Los enlaces en HTML pueden ser más sofisticados que simples vínculos de texto. Aquí hay algunas técnicas avanzadas:
+
+<CardGrid>
+  <Card title="Enlaces internos" icon="link">
+    Navega a secciones específicas de la misma página.
+  </Card>
+  <Card title="Atributos de destino" icon="open">
+    Controla cómo se abre el enlace.
+  </Card>
+  <Card title="Enlaces de descarga" icon="download">
+    Inicia la descarga de un archivo.
+  </Card>
+  <Card title="Enlaces de correo electrónico" icon="email">
+    Abre el cliente de correo del usuario.
+  </Card>
+</CardGrid>
+
+Ejemplos:
+
+```html
+<!-- Enlace interno -->
+<a href="#seccion-1">Ir a Sección 1</a>
+
+<!-- Atributo target -->
+<a href="https://ejemplo.com" target="_blank" rel="noopener noreferrer">Abrir en nueva pestaña</a>
+
+<!-- Enlace de descarga -->
+<a href="archivo.pdf" download>Descargar PDF</a>
+
+<!-- Enlace de correo electrónico -->
+<a href="mailto:info@ejemplo.com">Enviar correo</a>
+```
+
+<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="380" height="230" fill="#f0f0f0" stroke="#333" stroke-width="2"/>
+  <text x="200" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#333">Enlaces Avanzados en HTML</text>
+  
+  <rect x="30" y="60" width="160" height="50" fill="#d4e6f1" stroke="#3498db" stroke-width="2"/>
+  <text x="110" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Enlace Interno</text>
+  <text x="40" y="100" font-family="monospace" font-size="10" fill="#333">&lt;a href="#seccion-1"&gt;</text>
+  
+  <rect x="210" y="60" width="160" height="50" fill="#d5f5e3" stroke="#2ecc71" stroke-width="2"/>
+  <text x="290" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Atributo Target</text>
+  <text x="220" y="100" font-family="monospace" font-size="10" fill="#333">&lt;a target="_blank"&gt;</text>
+  
+  <rect x="30" y="120" width="160" height="50" fill="#fadbd8" stroke="#e74c3c" stroke-width="2"/>
+  <text x="110" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Enlace de Descarga</text>
+  <text x="40" y="160" font-family="monospace" font-size="10" fill="#333">&lt;a download&gt;</text>
+  
+  <rect x="210" y="120" width="160" height="50" fill="#f9e79f" stroke="#f39c12" stroke-width="2"/>
+  <text x="290" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Enlace de Email</text>
+  <text x="220" y="160" font-family="monospace" font-size="10" fill="#333">&lt;a href="mailto:..."&gt;</text>
+</svg>
+
+## 7. Tablas
+
+Las tablas en HTML se utilizan para presentar datos en filas y columnas. Aquí hay una estructura básica de una tabla:
+
+<Steps>
+  1. Usar `<table>` para crear la tabla
+  2. Definir filas con `<tr>`
+  3. Crear encabezados con `<th>`
+  4. Insertar datos en celdas con `<td>`
+  5. Utilizar `<caption>` para un título descriptivo
+</Steps>
+
+Ejemplo de una tabla HTML:
+
+```html
+<table>
+  <caption>Horario de Clases</caption>
+  <thead>
+    <tr>
+      <th>Hora</th>
+      <th>Lunes</th>
+      <th>Martes</th>
+      <th>Miércoles</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>9:00</td>
+      <td>Matemáticas</td>
+      <td>Historia</td>
+      <td>Ciencias</td>
+    </tr>
+    <tr>
+      <td>10:00</td>
+      <td>Literatura</td>
+      <td>Física</td>
+      <td>Arte</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="380" height="230" fill="#f0f0f0" stroke="#333" stroke-width="2"/>
+  <text x="200" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#333">Estructura de una Tabla HTML</text>
+  
+  <rect x="30" y="60" width="340" height="170" fill="#d4e6f1" stroke="#3498db" stroke-width="2"/>
+  <text x="200" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">&lt;table&gt;</text>
+  
+  <rect x="40" y="90" width="320" height="30" fill="#fadbd8" stroke="#e74c3c" stroke-width="2"/>
+  <text x="200" y="110" text-anchor="middle" font-family="monospace" font-size="12" fill="#333">&lt;caption&gt;Horario de Clases&lt;/caption&gt;</text>
+  
+  <rect x="40" y="130" width="320" height="40" fill="#d5f5e3" stroke="#2ecc71" stroke-width="2"/>
+  <text x="50" y="150" font-family="monospace" font-size="12" fill="#333">&lt;thead&gt;</text>
+  <text x="60" y="170" font-family="monospace" font-size="12" fill="#333">&lt;tr&gt;&lt;th&gt;Hora&lt;/th&gt;&lt;th&gt;Lunes&lt;/th&gt;...&lt;/tr&gt;</text>
+  
+  <rect x="40" y="180" width="320" height="40" fill="#f9e79f" stroke="#f39c12" stroke-width="2"/>
+  <text x="50" y="200" font-family="monospace" font-size="12" fill="#333">&lt;tbody&gt;</text>
+  <text x="60" y="220" font-family="monospace" font-size="12" fill="#333">&lt;tr&gt;&lt;td&gt;9:00&lt;/td&gt;&lt;td&gt;Matemáticas&lt;/td&gt;...&lt;/tr&gt;</text>
+</svg>
+
+## 8. Audio & Video
+
+HTML5 introdujo las etiquetas `<audio>` y `<video>` para incorporar contenido multimedia directamente en las páginas web.
+
+<Tabs>
+  <TabItem label="Audio">
+    ```html
+    <audio controls>
+      <source src="audio.mp3" type="audio/mpeg">
+      <source src="audio.ogg" type="audio/ogg">
+      Tu navegador no soporta el elemento de audio.
+    </audio>
+    ```
+  </TabItem>
+  <TabItem label="Video">
+    ```html
+    <video width="320" height="240" controls>
+      <source src="video.mp4" type="video/mp4">
+      <source src="video.webm" type="video/webm">
+      Tu navegador no soporta el elemento de video.
+    </video>
+    ```
+  </TabItem>
+</Tabs>
+
+<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="380" height="180" fill="#f0f0f0" stroke="#333" stroke-width="2"/>
+  <text x="200" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#333">Audio y Video en HTML</text>
+  
+  <rect x="30" y="60" width="160" height="100" fill="#d4e6f1" stroke="#3498db" stroke-width="2"/>
+  <text x="110" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Audio</text>
+  <text x="40" y="100" font-family="monospace" font-size="10" fill="#333">&lt;audio controls&gt;</text>
+  <text x="50" y="120" font-family="monospace" font-size="10" fill="#333">&lt;source src="audio.mp3"</text>
+  <text x="50" y="140" font-family="monospace" font-size="10" fill="#333">        type="audio/mpeg"&gt;</text>
+  
+  <rect x="210" y="60" width="160" height="100" fill="#d5f5e3" stroke="#2ecc71" stroke-width="2"/>
+  <text x="290" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Video</text>
+  <text x="220" y="100" font-family="monospace" font-size="10" fill="#333">&lt;video controls&gt;</text>
+  <text x="230" y="120" font-family="monospace" font-size="10" fill="#333">&lt;source src="video.mp4"</text>
+  <text x="230" y="140" font-family="monospace" font-size="10" fill="#333">        type="video/mp4"&gt;</text>
+</svg>
+
+
+## 9. Lazy Loading
+
+El lazy loading es una técnica que retrasa la carga de imágenes y otros recursos hasta que sean necesarios, mejorando el rendimiento de la página.
+
+```html
+<img src="imagen.jpg" loading="lazy" alt="Descripción de la imagen">
+```
+
+<Aside type="tip">
+  El atributo `loading="lazy"` es compatible con la mayoría de los navegadores modernos y ayuda a mejorar significativamente el tiempo de carga de las páginas con muchas imágenes.
+</Aside>
+
+## 10. HTML Obsoleto
+
+Algunos elementos y atributos HTML han quedado obsoletos con el tiempo. Es importante conocerlos para evitar su uso y utilizar alternativas modernas.
+
+<CardGrid>
+  <Card title="<font>" icon="warning">
+    Reemplazado por CSS para estilos de texto.
+  </Card>
+  <Card title="<center>" icon="warning">
+    Usar CSS `text-align: center;` en su lugar.
+  </Card>
+  <Card title="<frame>" icon="warning">
+    Los frames ya no se usan. Considerar `<iframe>` o diseños CSS.
+  </Card>
+</CardGrid>
+
+## 11. HTML Semántico
+
+El HTML semántico utiliza etiquetas que transmiten significado sobre la estructura y el contenido de la página.
+
+<Steps>
+  1. Usar `<header>` para encabezados de página o sección
+  2. Emplear `<nav>` para menús de navegación
+  3. Utilizar `<main>` para el contenido principal
+  4. Implementar `<article>` para contenido independiente
+  5. Usar `<aside>` para información relacionada pero no esencial
+  6. Emplear `<footer>` para pies de página
+</Steps>
+
+Ejemplo de estructura semántica:

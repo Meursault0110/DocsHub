@@ -1,0 +1,214 @@
+---
+title: Responsive Design en CSS
+description: Una guía completa sobre diseño web responsivo, incluyendo técnicas flexibles, multimedia adaptativa y queries avanzadas, con énfasis en el enfoque Mobile First.
+---
+
+import { Card, CardGrid, LinkCard, Aside, Tabs, TabItem, Badge, Code, FileTree, Icon, LinkButton, Steps } from '@astrojs/starlight/components';
+
+# Responsive Design en CSS
+
+<Aside type="tip">
+  El diseño web responsivo es esencial para crear experiencias web coherentes en todos los dispositivos.
+</Aside>
+
+## Introducción
+
+El diseño web responsivo es una técnica de diseño que permite que las páginas web se adapten a diferentes tamaños de pantalla y dispositivos. En esta guía, exploraremos las principales técnicas y conceptos del diseño responsivo, con un enfoque especial en la estrategia "Mobile First".
+
+<LinkButton href="#flexible-design">
+  Comenzar el viaje responsivo
+</LinkButton>
+
+## Flexible Design (Bloques flexibles)
+
+<Card title="Flexbox y Grid">
+  Los layouts flexibles son la base del diseño responsivo. Flexbox y Grid son herramientas poderosas para crear diseños adaptables.
+</Card>
+
+```css
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  flex: 1 1 300px;
+}
+```
+
+<Aside type="note">
+  Flexbox es ideal para diseños unidimensionales, mientras que Grid es perfecto para layouts bidimensionales.
+</Aside>
+
+## Flexible multimedia
+
+Las imágenes y videos flexibles son cruciales para un diseño responsivo efectivo.
+
+<Tabs>
+  <TabItem label="Imágenes flexibles">
+    ```css
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    ```
+  </TabItem>
+  <TabItem label="Videos flexibles">
+    ```css
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+## Atributos srcset y sizes
+
+Estos atributos permiten servir diferentes imágenes según el dispositivo y el tamaño de la pantalla.
+
+```html
+<img src="small.jpg"
+     srcset="small.jpg 300w,
+             medium.jpg 600w,
+             large.jpg 1200w"
+     sizes="(max-width: 300px) 100vw,
+            (max-width: 600px) 50vw,
+            33vw"
+     alt="Imagen responsiva">
+```
+
+## Picture, Source y Media
+
+El elemento `<picture>` ofrece más control sobre la selección de imágenes responsivas.
+
+```html
+<picture>
+  <source media="(min-width: 1200px)" srcset="large.jpg">
+  <source media="(min-width: 600px)" srcset="medium.jpg">
+  <img src="small.jpg" alt="Imagen responsiva">
+</picture>
+```
+
+## Media Queries
+
+Las media queries permiten aplicar estilos específicos según las características del dispositivo.
+
+<Tabs>
+  <TabItem label="Ancho de pantalla">
+    ```css
+    @media (max-width: 600px) {
+      .container {
+        flex-direction: column;
+      }
+    }
+    ```
+  </TabItem>
+  <TabItem label="Orientación">
+    ```css
+    @media (orientation: landscape) {
+      .sidebar {
+        width: 30%;
+      }
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+## Mobile First
+
+El enfoque "Mobile First" prioriza el diseño para dispositivos móviles y luego escala para pantallas más grandes.
+
+<img src="/path/to/mobile-first.svg" alt="Ilustración de Mobile First" />
+
+<Steps>
+  1. Diseña para móviles primero
+  2. Usa media queries para adaptar a pantallas más grandes
+  3. Optimiza la experiencia de usuario en cada paso
+</Steps>
+
+```css
+/* Estilos base para móvil */
+.container {
+  width: 100%;
+}
+
+/* Adaptación para tablets */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+/* Adaptación para desktops */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+```
+
+<Aside type="tip">
+  El enfoque Mobile First no solo mejora la experiencia en dispositivos móviles, sino que también ayuda a priorizar el contenido y optimizar el rendimiento.
+</Aside>
+
+## Feature queries
+
+Las feature queries permiten aplicar estilos basados en las capacidades del navegador.
+
+```css
+@supports (display: grid) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+```
+
+## Container queries
+
+Las container queries permiten estilar elementos basándose en el tamaño de su contenedor, no de la ventana del navegador.
+
+```css
+@container (min-width: 400px) {
+  .card {
+    display: flex;
+  }
+}
+
+.container {
+  container-type: inline-size;
+}
+```
+
+<Aside type="caution">
+  Las container queries son una característica relativamente nueva. Verifica la compatibilidad del navegador antes de usarlas en producción.
+</Aside>
+
+## Conclusión
+
+El diseño web responsivo es esencial en la era moderna de múltiples dispositivos. Al dominar estas técnicas, podrás crear experiencias web fluidas y adaptables.
+
+<CardGrid>
+  <Card title="Flexibilidad" icon="pencil">
+    Usa layouts y multimedia flexibles
+  </Card>
+  <Card title="Adaptabilidad" icon="add-document">
+    Implementa media queries y container queries
+  </Card>
+  <Card title="Optimización" icon="setting">
+    Prioriza el enfoque Mobile First
+  </Card>
+</CardGrid>
+
+<LinkButton href="https://web.dev/responsive-web-design-basics/" external>
+  Aprende más sobre Responsive Design
+</LinkButton>

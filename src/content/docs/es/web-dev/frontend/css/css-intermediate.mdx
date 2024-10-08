@@ -1,0 +1,591 @@
+---
+title: CSS Básico - Guía Completa
+description: Una guía exhaustiva sobre los fundamentos de CSS, incluyendo selectores avanzados, herencia, cascada, especificidad, pseudo-clases, pseudo-elementos, metodología BEM, display, posicionamiento, transiciones y más.
+---
+
+import { Card, CardGrid, LinkCard, TabItem, Aside, Badge, Code, FileTree, Icon, LinkButton, Steps, Tabs } from '@astrojs/starlight/components';
+
+# CSS Básico: Domina los Fundamentos
+
+<Aside type="tip">
+  Esta guía te llevará a través de los conceptos fundamentales de CSS, proporcionándote una base sólida para tu desarrollo web.
+</Aside>
+
+## Selectores Avanzados
+
+Los selectores son la base de CSS. Permiten apuntar a elementos HTML específicos para aplicar estilos.
+
+<CardGrid>
+  <Card title="Selectores de Atributo" icon="puzzle">
+    `[attr]`: Selecciona elementos con el atributo attr.
+    `[attr="value"]`: Selecciona elementos donde attr es exactamente "value".
+    `[attr~="value"]`: Selecciona elementos donde attr contiene "value" como palabra completa.
+  </Card>
+  <Card title="Selectores de Relación" icon="random">
+    `A > B`: Selecciona B que son hijos directos de A.
+    `A + B`: Selecciona B que es el hermano adyacente de A.
+    `A ~ B`: Selecciona B que son hermanos de A.
+  </Card>
+</CardGrid>
+
+<antArtifact identifier="selectores-avanzados-svg" type="image/svg+xml" title="Diagrama de Selectores Avanzados">
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="780" height="380" fill="#f0f0f0" rx="10" ry="10"/>
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#333">Selectores Avanzados CSS</text>
+  
+  {/* <!-- Selector de Atributo --> */}
+  <rect x="50" y="70" width="300" height="150" fill="#e1f5fe" stroke="#81d4fa" stroke-width="2" rx="5" ry="5"/>
+  <text x="200" y="100" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#0277bd">Selectores de Atributo</text>
+  <text x="60" y="130" font-family="monospace" font-size="14" fill="#01579b">[attr]</text>
+  <text x="60" y="160" font-family="monospace" font-size="14" fill="#01579b">[attr="value"]</text>
+  <text x="60" y="190" font-family="monospace" font-size="14" fill="#01579b">[attr~="value"]</text>
+
+  {/* <!-- Selector de Relación --> */}
+  <rect x="450" y="70" width="300" height="150" fill="#e8f5e9" stroke="#a5d6a7" stroke-width="2" rx="5" ry="5"/>
+  <text x="600" y="100" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#2e7d32">Selectores de Relación</text>
+  <text x="460" y="130" font-family="monospace" font-size="14" fill="#1b5e20">A > B</text>
+  <text x="460" y="160" font-family="monospace" font-size="14" fill="#1b5e20">A + B</text>
+  <text x="460" y="190" font-family="monospace" font-size="14" fill="#1b5e20">A ~ B</text>
+
+  {/* <!-- Ejemplos visuales --> */}
+  <rect x="50" y="240" width="700" height="140" fill="#fff3e0" stroke="#ffe0b2" stroke-width="2" rx="5" ry="5"/>
+  <text x="400" y="270" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#e65100">Ejemplos Visuales</text>
+  
+  {/* <!-- Árbol DOM para selectores de relación --> */}
+  <circle cx="200" cy="320" r="20" fill="#ffa726"/>
+  <circle cx="150" cy="360" r="15" fill="#ff7043"/>
+  <circle cx="250" cy="360" r="15" fill="#ff7043"/>
+  <line x1="200" y1="340" x2="150" y2="360" stroke="#555" stroke-width="2"/>
+  <line x1="200" y1="340" x2="250" y2="360" stroke="#555" stroke-width="2"/>
+  <text x="200" y="325" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#fff">A</text>
+  <text x="150" y="365" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#fff">B</text>
+  <text x="250" y="365" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#fff">C</text>
+
+  {/* <!-- Ejemplo de selector de atributo --> */}
+  <rect x="450" y="300" width="250" height="60" fill="#e1bee7" stroke="#ce93d8" stroke-width="2" rx="5" ry="5"/>
+  <text x="460" y="330" font-family="monospace" font-size="14" fill="#4a148c">&lt;div class="example"&gt;</text>
+  <text x="460" y="350" font-family="monospace" font-size="14" fill="#4a148c">  &lt;p attr="value"&gt;Texto&lt;/p&gt;</text>
+</svg>
+</antArtifact>
+
+
+## Herencia, Cascada y Especificidad
+
+Estos conceptos son cruciales para entender cómo se aplican los estilos en CSS.
+
+<Steps>
+  1. **Herencia**: Algunas propiedades CSS se heredan de los elementos padres a los hijos.
+  2. **Cascada**: Determina qué reglas se aplican cuando hay múltiples reglas conflictivas.
+  3. **Especificidad**: Determina qué regla tiene prioridad basándose en la precisión del selector.
+</Steps>
+
+<Aside type="note">
+  La especificidad se calcula basándose en la combinación de selectores utilizados. Los selectores de ID tienen la mayor especificidad, seguidos por las clases y los atributos, y finalmente los elementos.
+</Aside>
+
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="780" height="380" fill="#f0f0f0" rx="10" ry="10"/>
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#333">Cascada y Especificidad en CSS</text>
+
+  {/* <!-- Cascada --> */}
+  <rect x="50" y="70" width="300" height="150" fill="#e3f2fd" stroke="#90caf9" stroke-width="2" rx="5" ry="5"/>
+  <text x="200" y="100" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#1565c0">Cascada</text>
+  <text x="60" y="130" font-family="Arial, sans-serif" font-size="14" fill="#0d47a1">1. Importancia</text>
+  <text x="60" y="160" font-family="Arial, sans-serif" font-size="14" fill="#0d47a1">2. Especificidad</text>
+  <text x="60" y="190" font-family="Arial, sans-serif" font-size="14" fill="#0d47a1">3. Orden de aparición</text>
+
+  {/* <!-- Especificidad --> */}
+  <rect x="450" y="70" width="300" height="150" fill="#e8f5e9" stroke="#a5d6a7" stroke-width="2" rx="5" ry="5"/>
+  <text x="600" y="100" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#2e7d32">Especificidad</text>
+  <text x="460" y="130" font-family="Arial, sans-serif" font-size="14" fill="#1b5e20">1. Estilos en línea</text>
+  <text x="460" y="160" font-family="Arial, sans-serif" font-size="14" fill="#1b5e20">2. ID</text>
+  <text x="460" y="190" font-family="Arial, sans-serif" font-size="14" fill="#1b5e20">3. Clases, atributos, pseudo-clases</text>
+  <text x="460" y="220" font-family="Arial, sans-serif" font-size="14" fill="#1b5e20">4. Elementos y pseudo-elementos</text>
+
+  {/* <!-- Ejemplo visual de especificidad --> */}
+  <rect x="50" y="240" width="700" height="140" fill="#fff3e0" stroke="#ffe0b2" stroke-width="2" rx="5" ry="5"/>
+  <text x="400" y="270" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#e65100">Ejemplo de Especificidad</text>
+
+  {/* <!-- Barra de especificidad --> */}
+  <rect x="100" y="290" width="600" height="30" fill="#eceff1" rx="5" ry="5"/>
+  <rect x="100" y="290" width="150" height="30" fill="#ff8a65" rx="5" ry="5"/>
+  <rect x="250" y="290" width="200" height="30" fill="#ffd54f" rx="5" ry="5"/>
+  <rect x="450" y="290" width="150" height="30" fill="#81c784" rx="5" ry="5"/>
+  <rect x="600" y="290" width="100" height="30" fill="#4fc3f7" rx="5" ry="5"/>
+
+  <text x="175" y="340" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">Inline</text>
+  <text x="350" y="340" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">ID</text>
+  <text x="525" y="340" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">Clase</text>
+  <text x="650" y="340" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">Elemento</text>
+</svg>
+
+## Pseudo-clases y Pseudo-elementos
+
+Las pseudo-clases y pseudo-elementos permiten aplicar estilos basados en estados específicos o partes de un elemento.
+
+<Tabs>
+  <TabItem label="Pseudo-clases">
+    - `:hover` - Cuando el mouse está sobre el elemento
+    - `:active` - Cuando el elemento está siendo activado
+    - `:focus` - Cuando el elemento tiene el foco
+    - `:first-child` - El primer hijo de su padre
+    - `:nth-child(n)` - El enésimo hijo de su padre
+  </TabItem>
+  <TabItem label="Pseudo-elementos">
+    - `::before` - Inserta contenido antes del contenido del elemento
+    - `::after` - Inserta contenido después del contenido del elemento
+    - `::first-line` - Selecciona la primera línea de texto
+    - `::first-letter` - Selecciona la primera letra del texto
+  </TabItem>
+</Tabs>
+
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="780" height="380" fill="#f0f0f0" rx="10" ry="10"/>
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#333">Pseudo-clases y Pseudo-elementos</text>
+
+  {/* <!-- Pseudo-clases --> */}
+  <rect x="50" y="70" width="300" height="300" fill="#e1f5fe" stroke="#81d4fa" stroke-width="2" rx="5" ry="5"/>
+  <text x="200" y="100" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#0277bd">Pseudo-clases</text>
+  
+  {/* <!-- Ejemplos de pseudo-clases --> */}
+  <rect x="70" y="120" width="260" height="40" fill="#b3e5fc" rx="5" ry="5"/>
+  <text x="200" y="145" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#01579b">:hover</text>
+  
+  <rect x="70" y="170" width="260" height="40" fill="#b3e5fc" rx="5" ry="5"/>
+  <text x="200" y="195" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#01579b">:active</text>
+  
+  <rect x="70" y="220" width="260" height="40" fill="#b3e5fc" rx="5" ry="5"/>
+  <text x="200" y="245" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#01579b">:focus</text>
+  
+  <rect x="70" y="270" width="260" height="40" fill="#b3e5fc" rx="5" ry="5"/>
+  <text x="200" y="295" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#01579b">:first-child</text>
+  
+  <rect x="70" y="320" width="260" height="40" fill="#b3e5fc" rx="5" ry="5"/>
+  <text x="200" y="345" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#01579b">:nth-child(n)</text>
+
+  {/* <!-- Pseudo-elementos --> */}
+  <rect x="450" y="70" width="300" height="300" fill="#e8f5e9" stroke="#a5d6a7" stroke-width="2" rx="5" ry="5"/>
+  <text x="600" y="100" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#2e7d32">Pseudo-elementos</text>
+  
+  {/* <!-- Ejemplos de pseudo-elementos --> */}
+  <rect x="470" y="120" width="260" height="40" fill="#c8e6c9" rx="5" ry="5"/>
+  <text x="600" y="145" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#1b5e20">::before</text>
+  
+  <rect x="470" y="170" width="260" height="40" fill="#c8e6c9" rx="5" ry="5"/>
+  <text x="600" y="195" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#1b5e20">::after</text>
+  
+  <rect x="470" y="220" width="260" height="40" fill="#c8e6c9" rx="5" ry="5"/>
+  <text x="600" y="245" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#1b5e20">::first-line</text>
+  
+  <rect x="470" y="270" width="260" height="40" fill="#c8e6c9" rx="5" ry="5"/>
+  <text x="600" y="295" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#1b5e20">::first-letter</text>
+</svg>
+
+
+## Metodología BEM
+
+BEM (Block, Element, Modifier) es una metodología de nomenclatura para clases CSS que ayuda a crear componentes reutilizables y código mantenible.
+
+<Card title="Estructura BEM" icon="puzzle">
+  - **Bloque**: Componente independiente (ej. `card`)
+  - **Elemento**: Parte de un bloque (ej. `card__title`)
+  - **Modificador**: Variación de un bloque o elemento (ej. `card--featured`)
+</Card>
+
+Ejemplo de uso de BEM:
+
+```css
+.card { /* Estilos para el bloque card */ }
+.card__title { /* Estilos para el elemento título dentro de card */ }
+.card--featured { /* Estilos para la variante destacada de card */ }
+```
+
+<Aside type="tip">
+  BEM ayuda a evitar conflictos de especificidad y hace que el código sea más predecible y fácil de mantener.
+</Aside>
+
+## Display
+
+La propiedad `display` controla cómo se muestra un elemento en el flujo del documento.
+
+<CardGrid>
+  <Card title="block">
+    - Ocupa todo el ancho disponible
+    - Comienza en una nueva línea
+  </Card>
+  <Card title="inline">
+    - Ocupa solo el espacio necesario
+    - No comienza en una nueva línea
+  </Card>
+  <Card title="inline-block">
+    - Combinación de inline y block
+    - Permite establecer ancho y alto
+  </Card>
+  <Card title="flex">
+    - Crea un contenedor flexible
+    - Permite alinear y distribuir elementos hijos
+  </Card>
+  <Card title="grid">
+    - Crea un sistema de cuadrícula
+    - Permite diseños complejos en dos dimensiones
+  </Card>
+</CardGrid>
+
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="780" height="380" fill="#f0f0f0" rx="10" ry="10"/>
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#333">Propiedades Display</text>
+
+  {/* <!-- Block --> */}
+  <rect x="50" y="70" width="700" height="50" fill="#bbdefb" stroke="#64b5f6" stroke-width="2"/>
+  <text x="400" y="100" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#1565c0">display: block</text>
+
+  {/* <!-- Inline --> */}
+  <rect x="50" y="140" width="100" height="30" fill="#c8e6c9" stroke="#81c784" stroke-width="2"/>
+  <rect x="160" y="140" width="120" height="30" fill="#c8e6c9" stroke="#81c784" stroke-width="2"/>
+  <rect x="290" y="140" width="80" height="30" fill="#c8e6c9" stroke="#81c784" stroke-width="2"/>
+  <text x="400" y="160" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#2e7d32">display: inline</text>
+
+  {/* <!-- Inline-block --> */}
+  <rect x="50" y="190" width="120" height="50" fill="#fff9c4" stroke="#fff176" stroke-width="2"/>
+  <rect x="180" y="190" width="100" height="50" fill="#fff9c4" stroke="#fff176" stroke-width="2"/>
+  <rect x="290" y="190" width="140" height="50" fill="#fff9c4" stroke="#fff176" stroke-width="2"/>
+  <text x="400" y="220" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#f57f17">display: inline-block</text>
+
+  {/* <!-- Flex --> */}
+  <rect x="50" y="260" width="700" height="50" fill="#e1bee7" stroke="#ce93d8" stroke-width="2"/>
+  <rect x="60" y="270" width="80" height="30" fill="#ba68c8" stroke="#8e24aa" stroke-width="2"/>
+  <rect x="150" y="270" width="120" height="30" fill="#ba68c8" stroke="#8e24aa" stroke-width="2"/>
+  <rect x="280" y="270" width="100" height="30" fill="#ba68c8" stroke="#8e24aa" stroke-width="2"/>
+  <text x="400" y="290" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#4a148c">display: flex</text>
+
+  {/* <!-- Grid --> */}
+  <rect x="50" y="330" width="700" height="50" fill="#ffccbc" stroke="#ffab91" stroke-width="2"/>
+  <line x1="225" y1="330" x2="225" y2="380" stroke="#ff8a65" stroke-width="2"/>
+  <line x1="400" y1="330" x2="400" y2="380" stroke="#ff8a65" stroke-width="2"/>
+  <line x1="575" y1="330" x2="575" y2="380" stroke="#ff8a65" stroke-width="2"/>
+  <text x="400" y="360" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#d84315">display: grid</text>
+</svg>
+
+## Posicionamiento
+
+CSS ofrece varias opciones para controlar el posicionamiento de los elementos.
+
+<Tabs>
+  <TabItem label="Relativo">
+    El elemento se posiciona en relación a su posición normal.
+    ```css
+    .elemento { position: relative; top: 10px; left: 20px; }
+    ```
+  </TabItem>
+  <TabItem label="Absoluto">
+    El elemento se posiciona en relación al ancestro posicionado más cercano.
+    ```css
+    .contenedor { position: relative; }
+    .elemento { position: absolute; top: 0; right: 0; }
+    ```
+  </TabItem>
+  <TabItem label="Fijo">
+    El elemento se posiciona en relación a la ventana del navegador.
+    ```css
+    .elemento { position: fixed; bottom: 20px; right: 20px; }
+    ```
+  </TabItem>
+  <TabItem label="Sticky">
+    El elemento alterna entre relativo y fijo según la posición de scroll.
+    ```css
+    .elemento { position: sticky; top: 0; }
+    ```
+  </TabItem>
+</Tabs>
+
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="780" height="380" fill="#f0f0f0" rx="10" ry="10"/>
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#333">Posicionamiento CSS</text>
+
+  {/* <!-- Relative --> */}
+  <rect x="50" y="70" width="300" height="150" fill="#e3f2fd" stroke="#90caf9" stroke-width="2" rx="5" ry="5"/>
+  <text x="200" y="100" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#1565c0">Relative</text>
+  <rect x="70" y="120" width="80" height="40" fill="#bbdefb" stroke="#64b5f6" stroke-width="2"/>
+  <rect x="100" y="140" width="80" height="40" fill="#2196f3" stroke="#1e88e5" stroke-width="2"/>
+  <line x1="70" y1="140" x2="100" y2="160" stroke="#1565c0" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="140" y="170" font-family="Arial, sans-serif" font-size="12" fill="#0d47a1">Desplazado</text>
+
+  {/* <!-- Absolute --> */}
+  <rect x="450" y="70" width="300" height="150" fill="#e8f5e9" stroke="#a5d6a7" stroke-width="2" rx="5" ry="5"/>
+  <text x="600" y="100" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#2e7d32">Absolute</text>
+  <rect x="470" y="120" width="260" height="90" fill="#c8e6c9" stroke="#81c784" stroke-width="2"/>
+  <rect x="690" y="120" width="40" height="40" fill="#4caf50" stroke="#43a047" stroke-width="2"/>
+  <text x="650" y="140" font-family="Arial, sans-serif" font-size="12" text-anchor="end" fill="#1b5e20">Contenedor</text>
+  <text x="720" y="170" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1b5e20">Abs</text>
+
+  {/* <!-- Fixed --> */}
+  <rect x="50" y="240" width="300" height="150" fill="#fff3e0" stroke="#ffe0b2" stroke-width="2" rx="5" ry="5"/>
+  <text x="200" y="270" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#e65100">Fixed</text>
+  <rect x="70" y="290" width="260" height="90" fill="#ffe0b2" stroke="#ffcc80" stroke-width="2"/>
+  <rect x="290" y="370" width="40" height="40" fill="#ff9800" stroke="#fb8c00" stroke-width="2"/>
+  <text x="310" y="350" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#e65100">Fixed</text>
+
+  {/* <!-- Sticky --> */}
+  <rect x="450" y="240" width="300" height="150" fill="#f3e5f5" stroke="#e1bee7" stroke-width="2" rx="5" ry="5"/>
+  <text x="600" y="270" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#6a1b9a">Sticky</text>
+  <rect x="470" y="290" width="260" height="90" fill="#e1bee7" stroke="#ce93d8" stroke-width="2"/>
+  <rect x="470" y="290" width="260" height="20" fill="#9c27b0" stroke="#8e24aa" stroke-width="2"/>
+  <text x="600" y="305" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#fff">Sticky Header</text>
+</svg>
+
+## Transiciones
+
+Las transiciones permiten cambiar suavemente los valores de las propiedades CSS a lo largo del tiempo.
+
+```css
+.elemento {
+  transition: property duration timing-function delay;
+}
+```
+
+<CardGrid>
+  <Card title="Property">
+    La propiedad CSS a animar (e.g., `color`, `opacity`, `transform`)
+  </Card>
+  <Card title="Duration">
+    La duración de la transición en segundos o milisegundos
+  </Card>
+  <Card title="Timing Function">
+    La curva de aceleración de la transición (e.g., `ease`, `linear`, `cubic-bezier`)
+  </Card>
+  <Card title="Delay">
+    El tiempo de espera antes de que comience la transición
+  </Card>
+</CardGrid>
+
+Ejemplo:
+
+```css
+.button {
+  background-color: blue;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: red;
+}
+```
+
+<Aside type="note">
+  Las transiciones son una forma excelente de añadir interactividad sutil a tu sitio web sin necesidad de JavaScript.
+</Aside>
+
+## Overflow
+
+La propiedad `overflow` controla cómo se maneja el contenido que excede las dimensiones de su contenedor.
+
+<CardGrid>
+  <Card title="visible">
+    El contenido desborda el contenedor (comportamiento predeterminado)
+  </Card>
+  <Card title="hidden">
+    El contenido que desborda se recorta y no es visible
+  </Card>
+  <Card title="scroll">
+    Agrega barras de desplazamiento, incluso si no son necesarias
+  </Card>
+  <Card title="auto">
+    Agrega barras de desplazamiento solo cuando son necesarias
+  </Card>
+</CardGrid>
+
+```css
+.contenedor {
+  width: 300px;
+  height: 200px;
+  overflow: auto;
+}
+```
+
+<antArtifact identifier="overflow-svg" type="image/svg+xml" title="Ilustración de Overflow">
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="780" height="380" fill="#f0f0f0" rx="10" ry="10"/>
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#333">Overflow en CSS</text>
+
+  {/* <!-- visible --> */}
+  <rect x="50" y="70" width="160" height="120" fill="#e3f2fd" stroke="#90caf9" stroke-width="2" rx="5" ry="5"/>
+  <text x="130" y="100" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#1565c0">visible</text>
+  <rect x="60" y="110" width="140" height="140" fill="#bbdefb" stroke="#64b5f6" stroke-width="2"/>
+
+  {/* <!-- hidden --> */}
+  <rect x="230" y="70" width="160" height="120" fill="#e8f5e9" stroke="#a5d6a7" stroke-width="2" rx="5" ry="5"/>
+  <text x="310" y="100" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#2e7d32">hidden</text>
+  <rect x="240" y="110" width="140" height="70" fill="#c8e6c9" stroke="#81c784" stroke-width="2"/>
+
+  {/* <!-- scroll --> */}
+  <rect x="410" y="70" width="160" height="120" fill="#fff3e0" stroke="#ffe0b2" stroke-width="2" rx="5" ry="5"/>
+  <text x="490" y="100" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#e65100">scroll</text>
+  <rect x="420" y="110" width="140" height="70" fill="#ffe0b2" stroke="#ffcc80" stroke-width="2"/>
+  <rect x="540" y="110" width="20" height="70" fill="#ffa726" stroke="#fb8c00" stroke-width="2"/>
+  <rect x="420" y="160" width="140" height="20" fill="#ffa726" stroke="#fb8c00" stroke-width="2"/>
+
+  {/* <!-- auto --> */}
+  <rect x="590" y="70" width="160" height="120" fill="#f3e5f5" stroke="#e1bee7" stroke-width="2" rx="5" ry="5"/>
+  <text x="670" y="100" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#6a1b9a">auto</text>
+  <rect x="600" y="110" width="140" height="70" fill="#e1bee7" stroke="#ce93d8" stroke-width="2"/>
+  <rect x="720" y="110" width="20" height="50" fill="#9c27b0" stroke="#8e24aa" stroke-width="2"/>
+</svg>
+
+
+## Control de flujo del Texto
+
+CSS proporciona varias propiedades para controlar cómo fluye el texto dentro de los elementos.
+
+<CardGrid>
+  <Card title="text-align">
+    Alinea el texto horizontalmente (left, right, center, justify)
+  </Card>
+  <Card title="line-height">
+    Establece la altura de las líneas de texto
+  </Card>
+  <Card title="text-indent">
+    Establece la sangría de la primera línea de un bloque de texto
+  </Card>
+  <Card title="word-spacing">
+    Ajusta el espacio entre palabras
+  </Card>
+  <Card title="letter-spacing">
+    Ajusta el espacio entre caracteres
+  </Card>
+</CardGrid>
+
+Ejemplo:
+
+```css
+.parrafo {
+  text-align: justify;
+  line-height: 1.5;
+  text-indent: 20px;
+  word-spacing: 2px;
+  letter-spacing: 0.5px;
+}
+```
+
+<Aside type="tip">
+  Un buen control del flujo del texto puede mejorar significativamente la legibilidad de tu contenido.
+</Aside>
+
+## Object-fit y Object-position
+
+Estas propiedades son útiles para controlar cómo se ajustan las imágenes y videos dentro de sus contenedores.
+
+<Tabs>
+  <TabItem label="object-fit">
+    - `fill`: Estira la imagen para llenar el contenedor
+    - `contain`: Ajusta la imagen manteniendo su relación de aspecto
+    - `cover`: Cubre todo el contenedor, recortando si es necesario
+    - `none`: No ajusta la imagen
+    - `scale-down`: Usa el menor de `none` o `contain`
+  </TabItem>
+  <TabItem label="object-position">
+    Controla la posición de la imagen dentro del contenedor.
+    Ejemplo: `object-position: center top;`
+  </TabItem>
+</Tabs>
+
+```css
+.imagen {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+}
+```
+
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="780" height="380" fill="#f0f0f0" rx="10" ry="10"/>
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#333">Object-fit en CSS</text>
+
+  {/* <!-- fill --> */}
+  <rect x="50" y="70" width="140" height="100" fill="#e3f2fd" stroke="#90caf9" stroke-width="2"/>
+  <rect x="50" y="70" width="140" height="100" fill="#2196f3"/>
+  <text x="120" y="180" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#fff">fill</text>
+
+  {/* <!-- contain --> */}
+  <rect x="210" y="70" width="140" height="100" fill="#e8f5e9" stroke="#a5d6a7" stroke-width="2"/>
+  <rect x="235" y="70" width="90" height="100" fill="#4caf50"/>
+  <text x="280" y="180" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#fff">contain</text>
+
+  {/* <!-- cover --> */}
+  <rect x="370" y="70" width="140" height="100" fill="#fff3e0" stroke="#ffe0b2" stroke-width="2"/>
+  <rect x="370" y="85" width="140" height="70" fill="#ff9800"/>
+  <text x="440" y="180" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#fff">cover</text>
+
+  {/* <!-- none --> */}
+  <rect x="530" y="70" width="140" height="100" fill="#f3e5f5" stroke="#e1bee7" stroke-width="2"/>
+  <rect x="530" y="70" width="70" height="70" fill="#9c27b0"/>
+  <text x="600" y="180" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#fff">none</text>
+
+  {/* <!-- scale-down --> */}
+  <rect x="690" y="70" width="140" height="100" fill="#fce4ec" stroke="#f48fb1" stroke-width="2"/>
+  <rect x="715" y="70" width="90" height="90" fill="#e91e63"/>
+  <text x="760" y="180" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#fff">scale-down</text>
+</svg>
+
+## Outline (Contorno)
+
+La propiedad `outline` crea un contorno alrededor de un elemento, fuera del borde.
+
+```css
+.elemento {
+  outline: width style color;
+}
+```
+
+<CardGrid>
+  <Card title="width">
+    Grosor del contorno (e.g., `2px`)
+  </Card>
+  <Card title="style">
+    Estilo del contorno (e.g., `solid`, `dotted`, `dashed`)
+  </Card>
+  <Card title="color">
+    Color del contorno
+  </Card>
+</CardGrid>
+
+Ejemplo:
+
+```css
+.input:focus {
+  outline: 2px solid blue;
+}
+```
+
+<Aside type="note">
+  A diferencia del `border`, el `outline` no afecta el layout de la página, lo que lo hace útil para elementos de enfoque.
+</Aside>
+
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="780" height="380" fill="#f0f0f0" rx="10" ry="10"/>
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#333">Outline en CSS</text>
+
+  {/* <!-- Solid Outline --> */}
+  <rect x="50" y="70" width="200" height="100" fill="#e3f2fd" stroke="#90caf9" stroke-width="2"/>
+  <rect x="50" y="70" width="200" height="100" fill="none" stroke="#2196f3" stroke-width="4"/>
+  <text x="150" y="180" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#1565c0">Solid Outline</text>
+
+  {/* <!-- Dotted Outline --> */}
+  <rect x="300" y="70" width="200" height="100" fill="#e8f5e9" stroke="#a5d6a7" stroke-width="2"/>
+  <rect x="300" y="70" width="200" height="100" fill="none" stroke="#4caf50" stroke-width="4" stroke-dasharray="5,5"/>
+  <text x="400" y="180" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#2e7d32">Dotted Outline</text>
+
+  {/* <!-- Dashed Outline --> */}
+  <rect x="550" y="70" width="200" height="100" fill="#fff3e0" stroke="#ffe0b2" stroke-width="2"/>
+  <rect x="550" y="70" width="200" height="100" fill="none" stroke="#ff9800" stroke-width="4" stroke-dasharray="10,5"/>
+  <text x="650" y="180" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#e65100">Dashed Outline</text>
+
+  {/* <!-- Outline vs Border --> */}
+  <rect x="200" y="220" width="400" height="150" fill="#f3e5f5" stroke="#e1bee7" stroke-width="2"/>
+  <rect x="250" y="245" width="300" height="100" fill="#ce93d8" stroke="#9c27b0" stroke-width="4"/>
+  <rect x="250" y="245" width="300" height="100" fill="none" stroke="#4a148c" stroke-width="4" stroke-dasharray="5,5"/>
+  <text x="400" y="320" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#fff">Border</text>
+  <text x="400" y="380" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#4a148c">Outline (no afecta el layout)</text>
+</svg>
+</antArtifact>
+
