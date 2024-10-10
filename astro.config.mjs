@@ -6,17 +6,6 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
     integrations: [starlight({
         title: 'DocsHub',
-        // Establece el inglés como el idioma predeterminado para este sitio.
-        defaultLocale: 'es',
-        locales: {
-        // Documentación en inglés en `src/content/docs/en/`
-        es: {
-            label: 'Español',
-        },
-        'en': {
-            label: 'English',
-            lang: 'en'
-        },},
         customCss: [
             // Relative path to your custom CSS file
             './src/styles/custom.css',
@@ -29,7 +18,7 @@ export default defineConfig({
         },
         sidebar: [
             {
-                label: '🌌 DocsHub', 
+                label: '🌌 DocsHub',
                 items: [
                     { label: '🔥 Welcome', link: '/home/welcome/' },
             ],},
